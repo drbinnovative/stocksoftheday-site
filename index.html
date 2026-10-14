@@ -33,14 +33,12 @@ a{color:var(--accent)}
 :focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 section{padding-block:72px}
 
-.hero{background:var(--card);padding-block:80px 72px}
-.hero .wrap{max-width:760px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px}
 .pill{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:rgba(35,71,214,.10);border:1px solid rgba(35,71,214,.35);padding:5px 14px;border-radius:999px}
 .logo{width:72px;height:72px;border-radius:14px;display:block}
 .hero h1{font-size:clamp(40px,6.5vw,62px);font-weight:700;letter-spacing:-.02em}
 .hero h1 span{color:var(--accent)}
 .lede{font-size:19px;color:var(--muted);max-width:56ch;margin:0}
-.bh-form{width:100%;max-width:520px;min-height:420px}
+.bh-form{width:100%;min-height:520px}
 .fine{font-size:14px;color:var(--muted);margin:0}
 
 .head{margin-bottom:28px}
@@ -75,21 +73,96 @@ footer p{margin:0 0 6px;max-width:85ch}
   .hero{padding-block:56px}
 }
 @media (max-width:520px){.cards{grid-template-columns:1fr}}
+
+/* Hero: deep navy with a faint market chart drawn behind it; signup form sits on a light card. */
+.hero{position:relative;overflow:hidden;color:#FFFFFF;background:radial-gradient(1200px 600px at 85% -10%,#2347D6 0%,rgba(35,71,214,0) 60%),linear-gradient(160deg,#0B1A3A 0%,#0F2453 55%,#0B1A3A 100%);padding-block:72px 80px}
+.hero .bg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .grid line{stroke:rgba(255,255,255,.06);stroke-width:1}
+.hero .ln{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.hero .ln.a{stroke:#3CC98A;stroke-width:3;opacity:.4}
+.hero .ln.b{stroke:#7D98FF;stroke-width:2.5;opacity:.32}
+.hero .ln.c{stroke:#FFFFFF;stroke-width:1.5;opacity:.18}
+.hero .bars rect{fill:rgba(255,255,255,.07)}
+.hero .bars rect.up{fill:rgba(60,201,138,.22)}
+.draw{stroke-dasharray:2400;stroke-dashoffset:2400;animation:draw 3.2s ease-out forwards}
+.draw.d2{animation-delay:.4s}.draw.d3{animation-delay:.8s}
+@keyframes draw{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}}
+.hero .wrap{position:relative;max-width:1120px;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;text-align:left}
+.hero .copy{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+.hero .pill{color:#FFFFFF;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3)}
+.hero h1{color:#FFFFFF}
+.hero h1 span{color:#7FE3B1}
+.hero .lede{color:#C9D5F2}
+.hero .points{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;color:#E3E9FC;font-size:16px}
+.hero .points li{display:flex;gap:10px;align-items:flex-start}
+.hero .points li::before{content:"";flex:none;width:10px;height:10px;margin-top:7px;border-radius:3px;background:#3CC98A}
+.signup-card{background:#F2F4F7;color:var(--ink);border-radius:18px;padding:26px 24px 18px;box-shadow:0 30px 60px -20px rgba(0,0,0,.55);display:flex;flex-direction:column;gap:12px}
+.signup-card h2{font-size:22px;font-weight:700}
+.signup-card .bh-form{max-width:none}
+.signup-card .fine{font-size:13px}
+.card{border-top:4px solid var(--accent)}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.plan{border:1px solid var(--edge);border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:14px;background:var(--paper)}
+.plan.pro{border:2px solid var(--accent);background:linear-gradient(180deg,var(--tint) 0%,#FFFFFF 45%)}
+.plan .tag{align-self:flex-start;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--card);color:var(--muted)}
+.plan.pro .tag{background:var(--accent);color:#FFFFFF}
+.plan h3{font-size:24px;font-weight:700}
+.price{font-family:var(--display);font-size:34px;font-weight:700;line-height:1}
+.price small{font-size:16px;font-weight:600;color:var(--muted)}
+.price s{font-size:18px;color:var(--muted);font-weight:600;margin-left:6px}
+.plan ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:15px}
+.plan li{display:flex;gap:10px}
+.plan li::before{content:"✓";color:var(--accent);font-weight:700}
+.plan .note{font-size:13px;color:var(--muted);margin:0}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;gap:32px}
+  .plans{grid-template-columns:1fr}
+  .hero .points{display:none}
+  .hero{padding-block:48px 56px}
+}
 </style>
 </head>
 <body>
 
 <header class="hero" id="signup">
+  <svg class="bg" viewBox="0 0 1440 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g class="grid">
+      <line x1="0" y1="128" x2="1440" y2="128"/><line x1="0" y1="256" x2="1440" y2="256"/>
+      <line x1="0" y1="384" x2="1440" y2="384"/><line x1="0" y1="512" x2="1440" y2="512"/>
+      <line x1="240" y1="0" x2="240" y2="640"/><line x1="480" y1="0" x2="480" y2="640"/><line x1="720" y1="0" x2="720" y2="640"/>
+      <line x1="960" y1="0" x2="960" y2="640"/><line x1="1200" y1="0" x2="1200" y2="640"/>
+    </g>
+    <g class="bars">
+      <rect x="20" y="560" width="14" height="80"/><rect class="up" x="44" y="540" width="14" height="100"/><rect x="68" y="575" width="14" height="65"/>
+      <rect class="up" x="92" y="530" width="14" height="110"/><rect x="116" y="585" width="14" height="55"/><rect x="140" y="565" width="14" height="75"/>
+      <rect class="up" x="1190" y="520" width="14" height="120"/><rect x="1214" y="570" width="14" height="70"/><rect class="up" x="1238" y="500" width="14" height="140"/>
+      <rect x="1262" y="560" width="14" height="80"/><rect class="up" x="1286" y="470" width="14" height="170"/><rect class="up" x="1310" y="430" width="14" height="210"/>
+      <rect x="1334" y="545" width="14" height="95"/><rect class="up" x="1358" y="400" width="14" height="240"/><rect class="up" x="1382" y="380" width="14" height="260"/>
+    </g>
+    <polyline class="ln c draw d3" points="0,300 120,320 240,280 360,330 480,300 600,350 720,310 840,360 960,330 1080,370 1200,340 1320,380 1440,350"/>
+    <polyline class="ln b draw d2" points="0,470 110,440 220,460 330,410 440,430 550,380 660,400 770,350 880,370 990,320 1100,345 1210,290 1320,310 1440,260"/>
+    <polyline class="ln a draw" points="0,520 120,500 240,515 360,470 480,485 600,430 720,445 840,390 960,400 1080,330 1200,345 1300,250 1380,200 1440,150"/>
+  </svg>
   <div class="wrap">
-    <span class="pill">Launching soon</span>
-    <img class="logo" src="logo.png" alt="Stocks of the Day logo" width="72" height="72">
-    <h1>One stock a day. <span>Why it moved.</span></h1>
-    <p class="lede">Each morning, the stock with the most unusual trading and the story behind its move. In your inbox before the market opens.</p>
-    <div class="bh-form">
-      <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="a4f16d0a-2813-4700-afcd-3a65ee0ef205"></script>
-      <noscript><a class="btn" href="https://stocks-of-the-day.beehiiv.com/subscribe">Get tomorrow's pick</a></noscript>
+    <div class="copy">
+      <span class="pill">First issue Monday, Nov 2</span>
+      <h1>One stock a day. <span>Why it moved.</span></h1>
+      <p class="lede">Each morning, the stock with the most unusual trading and the story behind its move. In your inbox before the market opens.</p>
+      <ul class="points">
+        <li>Picked by a published rule, not opinions or paid placements</li>
+        <li>Every fact linked to its source so you can check it</li>
+        <li>Plain English, about three minutes, no buy or sell calls</li>
+      </ul>
     </div>
-    <p class="fine">Everyone gets the daily pick. The boxes are optional extras you can change anytime. Free. No spam. Unsubscribe in one click. Form not showing? <a href="https://stocks-of-the-day.beehiiv.com/subscribe">Subscribe here</a>.</p>
+    <div class="signup-card">
+      <h2>Get tomorrow's pick, free</h2>
+      <div class="bh-form">
+        <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="a4f16d0a-2813-4700-afcd-3a65ee0ef205"></script>
+        <noscript><a class="btn" href="https://stocks-of-the-day.beehiiv.com/subscribe">Get tomorrow's pick</a></noscript>
+      </div>
+      <p class="fine">Everyone gets the daily pick. The boxes are optional extras you can change anytime. No spam, unsubscribe in one click. Form not showing? <a href="https://stocks-of-the-day.beehiiv.com/subscribe">Subscribe here</a>.</p>
+    </div>
   </div>
 </header>
 
@@ -118,6 +191,44 @@ footer p{margin:0 0 6px;max-width:85ch}
       <div><h3>Picked by data</h3><p>A published rule chooses each stock: the biggest volume spike compared with its usual trading. No paid placements.</p></div>
       <div><h3>Every fact is linked</h3><p>Each claim points to the earnings release, filing or news report it came from, so you can check it yourself.</p></div>
       <div><h3>No buy or sell calls</h3><p>We explain what happened and what's coming up. What you do with it is up to you.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="plans">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">Free and Pro</p>
+      <h2>Free every day. Pro if you want more.</h2>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <span class="tag">Free</span>
+        <h3>Stock of the Day</h3>
+        <div class="price">$0</div>
+        <ul>
+          <li>The Stock of the Day email every market morning</li>
+          <li>What happened, the numbers, and what to watch</li>
+          <li>A quick video of each pick on YouTube, TikTok and Instagram</li>
+          <li>Optional topic emails you choose</li>
+        </ul>
+        <a class="btn" href="#signup">Subscribe free</a>
+      </div>
+      <div class="plan pro">
+        <span class="tag">Pro · coming soon</span>
+        <h3>Stocks of the Day Pro</h3>
+        <div class="price">$9<small>/month</small><s>$12</s></div>
+        <p class="note">Founding member price, or $79/year (regular $99). Locked in for as long as you stay subscribed.</p>
+        <ul>
+          <li>Everything in Free</li>
+          <li>The top 10 unusual movers every day, not just one</li>
+          <li>Intraday alerts when a stock trips the rule</li>
+          <li>Full archive with how every pick did 5 and 20 days later</li>
+          <li>Weekly recap</li>
+        </ul>
+        <a class="btn" href="#signup">Get early access</a>
+        <p class="note">Check "Pro early access" when you sign up and you'll get first shot at founding spots.</p>
+      </div>
     </div>
   </div>
 </section>
