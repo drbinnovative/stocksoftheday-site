@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://stocksoftheday.com/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://stocksoftheday.com/terms.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
-  <url><loc>https://stocksoftheday.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://stocksoftheday.com/</loc></url>
+  <url><loc>https://stocksoftheday.com/issues/</loc></url>
+  <url><loc>https://stocksoftheday.com/track-record/</loc></url>
+  <url><loc>https://stocksoftheday.com/stocks/</loc></url>
+  <url><loc>https://stocksoftheday.com/terms.html</loc></url>
+  <url><loc>https://stocksoftheday.com/privacy.html</loc></url>
 </urlset>

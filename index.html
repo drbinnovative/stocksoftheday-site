@@ -71,7 +71,7 @@ footer p{margin:0 0 6px;max-width:85ch}
 @media (max-width:520px){.cards{grid-template-columns:1fr}}
 
 /* Hero: deep navy with a faint market chart drawn behind it; signup form sits on a light card. */
-.hero{position:relative;overflow:hidden;color:#FFFFFF;background:radial-gradient(1200px 600px at 85% -10%,#2347D6 0%,rgba(35,71,214,0) 60%),linear-gradient(160deg,#0B1A3A 0%,#0F2453 55%,#0B1A3A 100%);padding-block:72px 80px}
+.hero{position:relative;overflow:hidden;color:#FFFFFF;background:radial-gradient(1200px 600px at 85% -10%,#2347D6 0%,rgba(35,71,214,0) 60%),linear-gradient(160deg,#0B1A3A 0%,#0F2453 55%,#0B1A3A 100%);padding-block:22px 80px}
 .hero .bg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .hero .grid line{stroke:rgba(255,255,255,.06);stroke-width:1}
 .hero .ln{fill:none;stroke-linecap:round;stroke-linejoin:round}
@@ -117,8 +117,25 @@ footer p{margin:0 0 6px;max-width:85ch}
   .hero .wrap{grid-template-columns:1fr;gap:32px}
   .hero .wrap{grid-template-areas:"copy" "signup" "plans"}
   .tiers{grid-template-columns:1fr}
-  .hero{padding-block:48px 56px}
+  .hero{padding-block:18px 56px}
 }
+.topnav{position:relative;max-width:1120px;margin:0 auto;padding:0 20px 28px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.topnav .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;color:#FFFFFF;text-decoration:none}
+.topnav .brand img{width:32px;height:32px;border-radius:8px}
+.topnav nav{display:flex;gap:18px;font-size:15px}
+.topnav nav a{color:#C9D5F2;text-decoration:none}
+.topnav nav a:hover{color:#FFFFFF}
+.recent{padding-block:56px 8px}
+.rows{list-style:none;margin:0 0 14px;padding:0;border-top:1px solid var(--edge)}
+.rows li{border-bottom:1px solid var(--edge)}
+.rows a{display:grid;grid-template-columns:110px 70px 1fr auto;gap:12px;align-items:baseline;padding:12px 4px;color:var(--ink);text-decoration:none}
+.rows a:hover{background:var(--card)}
+.rows .d{font-size:14px;color:var(--muted)}
+.rows .t{font-family:var(--display);font-weight:700}
+.rows .m{font-weight:600}
+.rows .up{color:#0E8A55}.rows .down{color:#C6362F}
+@media (max-width:600px){.rows a{grid-template-columns:auto 1fr auto;grid-template-areas:"t d m" "h h h";row-gap:2px}
+  .rows .t{grid-area:t}.rows .d{grid-area:d}.rows .m{grid-area:m}.rows .h{grid-area:h;font-size:15px}}
 </style>
 </head>
 <body>
@@ -142,6 +159,10 @@ footer p{margin:0 0 6px;max-width:85ch}
     <polyline class="ln b draw d2" points="0,470 110,440 220,460 330,410 440,430 550,380 660,400 770,350 880,370 990,320 1100,345 1210,290 1320,310 1440,260"/>
     <polyline class="ln a draw" points="0,520 120,500 240,515 360,470 480,485 600,430 720,445 840,390 960,400 1080,330 1200,345 1300,250 1380,200 1440,150"/>
   </svg>
+  <div class="topnav">
+    <a class="brand" href="/"><img src="logo.png" alt="" width="32" height="32">Stocks of the Day</a>
+    <nav aria-label="Main"><a href="/issues/">Archive</a><a href="/track-record/">Track record</a></nav>
+  </div>
   <div class="wrap">
     <div class="copy">
       <span class="pill">First issue Monday, Nov 2</span>
@@ -183,6 +204,7 @@ footer p{margin:0 0 6px;max-width:85ch}
     </div>
   </div>
 </header>
+<!-- RECENT:START --><!-- RECENT:END -->
 
 <section>
   <div class="wrap">
@@ -217,7 +239,7 @@ footer p{margin:0 0 6px;max-width:85ch}
   <div class="wrap">
     <p><strong>stocksoftheday.com</strong> · © 2026 DRB Innovative Products LLC d/b/a Stocks of the Day · PO Box 1, Amazonia, MO 64421</p>
     <p>Stocks of the Day publishes general market information for educational purposes only. It is not investment advice or a recommendation to buy or sell any security.</p>
-    <p><a href="terms.html">Terms of Service</a> · <a href="privacy.html">Privacy Policy</a></p>
+    <p><a href="/issues/">Archive</a> · <a href="/track-record/">Track record</a> · <a href="/stocks/">All stocks</a> · <a href="terms.html">Terms of Service</a> · <a href="privacy.html">Privacy Policy</a></p>
   </div>
 </footer>
 
