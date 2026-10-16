@@ -10,7 +10,7 @@ a{color:var(--accent)}
 .bar{background:#0B1A3A;color:#fff}
 .bar .wrap{max-width:1120px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;color:#fff;text-decoration:none}
-.brand img{width:30px;height:30px;border-radius:7px}
+.brand img{width:151px;height:40px;display:block}
 .bar nav{display:flex;align-items:center;gap:18px;font-size:15px}
 .bar nav a{color:#C9D5F2;text-decoration:none}
 .bar nav a:hover{color:#fff}
