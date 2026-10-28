@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta name="robots" content="noindex">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Page not found | Stocks of the Day</title>
@@ -32,6 +33,18 @@
   <p>One stock every market morning, the story behind its move, and every fact linked to its source. About three minutes, no buy or sell calls.</p>
   <a class="btn" href="/#signup">Subscribe free</a>
 </aside>
+<script>
+// Old links from this domain's previous site (/tickers/nyse/abc) go to our page for
+// that stock if we've covered it, otherwise to the homepage.
+(function () {
+  var m = location.pathname.match(/^\/tickers\/[^\/]+\/([^\/]+)/i);
+  if (!m) return;
+  var t = m[1].toLowerCase().replace(/[^a-z0-9]+/g, "-");
+  fetch("/stocks/" + t + "/", { method: "HEAD" }).then(function (r) {
+    location.replace(r.ok ? "/stocks/" + t + "/" : "/");
+  }).catch(function () { location.replace("/"); });
+})();
+</script>
 </main>
 <footer><div class="wrap">
   <p><strong>stocksoftheday.com</strong> · © 2026 DRB Innovative Products LLC d/b/a Stocks of the Day · PO Box 1, Amazonia, MO 64421</p>
