@@ -125,7 +125,8 @@ footer p{margin:0 0 6px;max-width:85ch}
 .topnav .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;color:#FFFFFF;text-decoration:none}
 .topnav .brand img{width:174px;height:46px;display:block}
 .topnav nav{display:flex;gap:18px;font-size:15px}
-.topnav nav a{color:#C9D5F2;text-decoration:none}
+.topnav nav a{color:#C9D5F2;text-decoration:none;white-space:nowrap}
+@media (max-width:600px){.topnav{flex-wrap:wrap}.topnav nav{width:100%;gap:22px;font-size:14px}.topnav nav a.wide-only{display:none}}
 .topnav nav a:hover{color:#FFFFFF}
 .recent{padding-block:56px 8px}
 .rows{list-style:none;margin:0 0 14px;padding:0;border-top:1px solid var(--edge)}
@@ -163,7 +164,7 @@ footer p{margin:0 0 6px;max-width:85ch}
   </svg>
   <div class="topnav">
     <a class="brand" href="/"><img src="/brand/wordmark-light.png" alt="Stocks of the Day" width="174" height="46"></a>
-    <nav aria-label="Main"><a href="/issues/">Archive</a><a href="/track-record/">Track record</a></nav>
+    <nav aria-label="Main"><a href="/issues/">Archive</a><a class="wide-only" href="/track-record/">Track record</a><a href="/pro/">Pro</a><a href="/login/">Log in</a></nav>
   </div>
   <div class="wrap">
     <div class="copy">
