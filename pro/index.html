@@ -26,15 +26,33 @@
 <section class="hero"><div class="wrap">
 <p class="kicker">Stocks of the Day Pro</p>
 <h1>Test any trading idea on ten years of the market</h1>
-<p class="lede">Plus the full daily top 10 and intraday alerts. Founding members lock in the lower price for as long as they stay subscribed.</p>
+<p class="lede">Plus the full daily top 10 and intraday alerts. The first 25 members lock in the founding price for as long as they stay subscribed.</p>
 </div></section>
 <main class="wrap">
 
-<div class="stats wide">
-  <div><span>Founding price</span><b>$9<small style="display:inline">/month</small></b><small>regular $12</small></div>
-  <div><span>Or yearly</span><b>$79<small style="display:inline">/year</small></b><small>regular $99</small></div>
+<div class="stats wide fp">
+  <div><span>Founding price</span><b>$9<small style="display:inline">/month</small></b><small>regular $14</small></div>
+  <div><span>Or yearly</span><b>$79<small style="display:inline">/year</small></b><small>regular $119</small></div>
 </div>
-<p><a class="btn" href="https://buy.stripe.com/14A14ndrHaiE07jfWy7N600">Join monthly: $9/month</a> <a class="btn" href="https://buy.stripe.com/5kQ9ATevLcqM9HTeSu7N601">Join yearly: $79/year</a></p>
+<div class="stats wide rp" hidden>
+  <div><span>Monthly</span><b>$14<small style="display:inline">/month</small></b></div>
+  <div><span>Yearly</span><b>$119<small style="display:inline">/year</small></b></div>
+</div>
+<div class="founding" data-src="https://sotd-pro.drbinnovative.workers.dev/founding">
+  <p class="fp"><b><span class="f-left">25</span> of 25 founding spots left</b>
+  · founding price ends Dec 31 or when the spots are gone. Founders keep $9/month or $79/year for as long as they stay subscribed.</p>
+  <div class="fbar fp"><i style="width:0%"></i></div>
+  <p class="rp" hidden>The founding-member offer has closed. Founders keep their price.</p>
+</div>
+<script>
+(function(){var w=document.querySelector('.founding');if(!w)return;
+fetch(w.dataset.src).then(function(r){return r.json()}).then(function(s){if(s.left==null)return;
+document.querySelectorAll('.f-left').forEach(function(e){e.textContent=s.left});
+var b=document.querySelector('.fbar i');if(b)b.style.width=Math.round(100*s.taken/s.spots)+'%';
+document.querySelectorAll('.fp').forEach(function(e){e.hidden=!s.open});
+document.querySelectorAll('.rp').forEach(function(e){e.hidden=s.open});}).catch(function(){});})();
+</script>
+<p><a class="btn" href="https://sotd-pro.drbinnovative.workers.dev/join/monthly">Join monthly: <span class="fp">$9</span><span class="rp" hidden>$14</span>/month</a> <a class="btn" href="https://sotd-pro.drbinnovative.workers.dev/join/yearly">Join yearly: <span class="fp">$79</span><span class="rp" hidden>$119</span>/year</a></p>
 <h2>What Pro adds</h2>
 <ul>
   <li><strong>Test any setup on ten years of the market.</strong> Describe it in plain English (“stocks that hit a new 52-week high on 3x volume”, “TSLA gapping up 5% on heavy volume”) and see every time it happened on every U.S. stock since 2016: how often the move kept going 1, 5, 20 and 60 days later, how that compares with an average day, year by year, and which stocks match today. Five scans a month, results in minutes.</li>
@@ -51,7 +69,7 @@
 <tr><td>Trade Ideas (top plan)</td><td>$254/month</td><td>Yes</td></tr>
 <tr><td>Trade Ideas (base plan)</td><td>$127/month</td><td>No</td></tr>
 <tr><td>Finviz Elite</td><td>$39.50/month</td><td>Limited</td></tr>
-<tr><td><strong>Stocks of the Day Pro</strong></td><td><strong>$9/month</strong></td><td><strong>Yes, in plain English</strong></td></tr>
+<tr><td><strong>Stocks of the Day Pro</strong></td><td><strong><span class="fp">$9/month (founding)</span><span class="rp" hidden>$14/month</span></strong></td><td><strong>Yes, in plain English</strong></td></tr>
 </tbody></table></div>
 <p class="meta">Competitor prices as listed in October 2026, monthly billing. We show what really happened, including when a popular setup did no better than a coin flip.</p>
 <h2>How joining works</h2>
