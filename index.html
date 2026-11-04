@@ -111,6 +111,9 @@ footer p{margin:0 0 6px;max-width:85ch}
 .tier .price small{font-size:14px;color:#C9D5F2}
 .tier .price s{font-size:15px;color:#93A0B5;margin-left:4px;font-weight:600}
 .tier .sub{font-size:13px;color:#C9D5F2;margin:0}
+.founding p{margin:0 0 6px;font-size:13px;color:#E3E9FC}.founding b{color:#7FE3B1}
+.fbar{height:8px;background:rgba(255,255,255,.15);border-radius:999px;overflow:hidden}.fbar i{display:block;height:100%;background:#7FE3B1;border-radius:999px}
+[hidden]{display:none!important}
 .tier ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.45;color:#E3E9FC}
 .tier li{display:flex;gap:8px}
 .tier li::before{content:"✓";color:#7FE3B1;font-weight:700}
@@ -174,7 +177,8 @@ footer p{margin:0 0 6px;max-width:85ch}
     </div>
     <div class="signup-card">
       <h2>Get tomorrow's pick, free</h2>
-      <p class="pro-tip"><strong>Pro is open.</strong> The full top 10, track record and intraday alerts for $9/month, founding price locked in. <a href="/pro/">Join Pro</a></p>
+      <p class="pro-tip fp"><strong><span class="f-left">25</span> of 25 founding Pro spots left.</strong> Test any setup on ten years of the market, plus the full top 10 and intraday alerts, for $9/month locked in. <a href="/pro/">Join Pro</a></p>
+      <p class="pro-tip rp" hidden><strong>Pro is open.</strong> Test any setup on ten years of the market, plus the full top 10 and intraday alerts, for $14/month. <a href="/pro/">Join Pro</a></p>
       <div class="bh-form">
         <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="a4f16d0a-2813-4700-afcd-3a65ee0ef205"></script>
         <noscript><a class="btn" href="https://stocks-of-the-day.beehiiv.com/subscribe">Get tomorrow's pick</a></noscript>
@@ -193,16 +197,23 @@ footer p{margin:0 0 6px;max-width:85ch}
         </ul>
       </div>
       <div class="tier pro">
-        <div class="top"><h3>Pro</h3><span class="soon">Now open</span></div>
-        <div class="price">$9<small>/month</small><s>$12</s></div>
-        <p class="sub">Founding price, or $79/year (regular $99), locked in while you stay subscribed.</p>
+        <div class="top"><h3>Pro</h3><span class="soon fp">Founding price</span><span class="soon rp" hidden>Now open</span></div>
+        <div class="price fp">$9<small>/month</small><s>$14</s></div>
+        <div class="price rp" hidden>$14<small>/month</small></div>
+        <p class="sub fp">Or $79/year (regular $119). Locked in for as long as you stay subscribed.</p>
+        <p class="sub rp" hidden>Or $119/year.</p>
+        <div class="founding fp" data-src="https://sotd-pro.drbinnovative.workers.dev/founding">
+          <p><b><span class="f-left">25</span> of 25 founding spots left</b> · ends Dec 31</p>
+          <div class="fbar"><i style="width:0%"></i></div>
+        </div>
         <ul>
           <li>Everything in Free</li>
-          <li>The full top 10 unusual movers every morning</li>
+          <li>Test any setup in plain English on ten years of every U.S. stock (or your own list) and see what happened next</li>
+          <li>The full top 10 unusual movers every day</li>
           <li>Intraday alerts on Telegram when a heavily traded stock makes a big move</li>
-          <li>Track record of every pick with 5- and 20-day results</li>
-          <li>Each pick compared with the S&amp;P 500 and its sector</li>
-          <li>Your own members page, updated every evening</li>
+          <li>Each pick's history, and how it did against the S&amp;P 500 and its sector</li>
+          <li>Track record of every pick</li>
+          <li>Your own private members page with all of it</li>
         </ul>
         <a class="btn tier-btn" href="/pro/">Join Pro</a>
       </div>
@@ -256,5 +267,13 @@ footer p{margin:0 0 6px;max-width:85ch}
 </footer>
 
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b2fb3b9deebb462587c8dd2b0c1891cc"}'></script><!-- End Cloudflare Web Analytics -->
+<script>
+(function(){var w=document.querySelector('.founding[data-src]');if(!w)return;
+fetch(w.dataset.src).then(function(r){return r.json()}).then(function(s){if(s.left==null)return;
+document.querySelectorAll('.f-left').forEach(function(e){e.textContent=s.left});
+var b=document.querySelector('.fbar i');if(b)b.style.width=Math.max(2,Math.round(100*s.taken/s.spots))+'%';
+document.querySelectorAll('.fp').forEach(function(e){e.hidden=!s.open});
+document.querySelectorAll('.rp').forEach(function(e){e.hidden=s.open});}).catch(function(){});})();
+</script>
 </body>
 </html>
