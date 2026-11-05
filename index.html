@@ -285,11 +285,12 @@ document.querySelectorAll('.rp').forEach(function(e){e.hidden=s.open});}).catch(
 (function(){var f=document.getElementById('signup');if(!f)return;var m=f.querySelector('.su-msg'),b=f.querySelector('button');
 function show(t,err){m.textContent=t;m.hidden=false;m.className='su-msg'+(err?' err':'');}
 var q=new URLSearchParams(location.search);
+try{['utm_source','utm_medium','utm_campaign'].forEach(function(k){if(q.get(k))sessionStorage.setItem(k,q.get(k))})}catch(e){}
 if(q.get('subscribed'))show('Almost done: check your inbox and tap the confirm button.');
 if(q.get('signup_error'))show(q.get('signup_error'),true);
 f.addEventListener('submit',function(e){e.preventDefault();b.disabled=true;b.textContent='Signing you up…';
 fetch(f.action,{method:'POST',headers:{'content-type':'application/json','accept':'application/json'},
-body:JSON.stringify({email:f.email.value,website:f.website.value})}).then(function(r){return r.json()}).then(function(d){
+body:JSON.stringify({email:f.email.value,website:f.website.value,utm_source:q.get('utm_source')||sessionStorage.getItem('utm_source')||'',utm_medium:q.get('utm_medium')||sessionStorage.getItem('utm_medium')||'',utm_campaign:q.get('utm_campaign')||sessionStorage.getItem('utm_campaign')||''})}).then(function(r){return r.json()}).then(function(d){
 if(d.ok){show(d.message);f.email.value='';b.textContent='Check your inbox';}else{show(d.message||'Something went wrong.',true);b.disabled=false;b.textContent='Sign up free';}
 }).catch(function(){f.submit();});});})();
 </script>
