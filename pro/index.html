@@ -41,15 +41,16 @@
   <div><span>Yearly</span><b>$119<small style="display:inline">/year</small></b></div>
 </div>
 <div class="founding" data-src="https://sotd-pro.drbinnovative.workers.dev/founding">
-  <p class="fp"><b><span class="f-left">25</span> of 25 founding spots left</b>
-  · founding price ends Dec 31 or when the spots are gone. Founders keep $9/month or $79/year for as long as they stay subscribed.</p>
-  <div class="fbar fp"><i style="width:0%"></i></div>
+  <p class="fp"><b>Founding price ends Dec 31</b><span class="f-count" hidden> (<span class="f-left">25</span> of 25 spots left)</span>,
+  or sooner if all 25 spots are taken. Founders keep $9/month or $79/year for as long as they stay subscribed.</p>
+  <div class="fbar" hidden><i style="width:0%"></i></div>
   <p class="rp" hidden>The founding-member offer has closed. Founders keep their price.</p>
 </div>
 <script>
 (function(){var w=document.querySelector('.founding');if(!w)return;
 fetch(w.dataset.src).then(function(r){return r.json()}).then(function(s){if(s.left==null)return;
 document.querySelectorAll('.f-left').forEach(function(e){e.textContent=s.left});
+if(s.taken>=3){document.querySelectorAll('.f-count,.fbar').forEach(function(e){e.hidden=false})}
 var b=document.querySelector('.fbar i');if(b)b.style.width=Math.round(100*s.taken/s.spots)+'%';
 document.querySelectorAll('.fp').forEach(function(e){e.hidden=!s.open});
 document.querySelectorAll('.rp').forEach(function(e){e.hidden=s.open});}).catch(function(){});})();
@@ -88,7 +89,7 @@ document.querySelectorAll('.rp').forEach(function(e){e.hidden=s.open});}).catch(
 <footer><div class="wrap">
   <p><strong>stocksoftheday.com</strong> · © 2026 DRB Innovative Products LLC d/b/a Stocks of the Day · PO Box 1, Amazonia, MO 64421</p>
   <p>Stocks of the Day publishes general market information for educational purposes only. It is not investment advice or a recommendation to buy or sell any security.</p>
-  <p>Follow: <a href="https://www.instagram.com/stocksoftheday/" rel="noopener">Instagram</a> · <a href="https://www.tiktok.com/@stocksoftheday.com" rel="noopener">TikTok</a> · <a href="https://x.com/SOTDstocks" rel="noopener">X</a> · <a href="https://www.facebook.com/1337592529446783" rel="noopener">Facebook</a></p>
+  <p>Follow: <a href="https://www.youtube.com/channel/UCLCU99E1dirjL_zuB5-hmsQ" rel="noopener">YouTube</a> · <a href="https://www.instagram.com/stocksoftheday/" rel="noopener">Instagram</a> · <a href="https://www.tiktok.com/@stocksoftheday.com" rel="noopener">TikTok</a> · <a href="https://x.com/SOTDstocks" rel="noopener">X</a> · <a href="https://www.facebook.com/1337592529446783" rel="noopener">Facebook</a></p>
   <p><a href="https://www.tiingo.com" rel="noopener">Market Data from Tiingo.com</a> · <a href="/terms.html">Terms of Service</a> · <a href="/privacy.html">Privacy Policy</a> · <a href="/stocks/">All stocks</a> · <a href="/track-record/">Track record</a> · <a href="/research/stock-crashes/">Research</a></p>
 </div></footer>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b2fb3b9deebb462587c8dd2b0c1891cc"}'></script><!-- End Cloudflare Web Analytics -->

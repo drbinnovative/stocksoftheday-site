@@ -107,6 +107,12 @@ footer p{margin:0 0 6px;max-width:85ch}
 .tier h3{font-size:18px;font-weight:700;color:#FFFFFF}
 .tier-btn{margin-top:16px;display:block;text-align:center;background:#7FE3B1;color:#0B1A3A}
 .tier .signup{margin-top:auto;display:flex;flex-direction:column;gap:8px}
+.copy .signup{display:grid;grid-template-columns:1fr auto;gap:10px;width:100%;max-width:480px}
+.copy .signup input[type=email]{width:100%;font:inherit;font-size:16px;padding:14px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.35);background:#FFFFFF;color:#0B1A3A}
+.copy .signup .tier-btn{margin-top:0;border:0;font:inherit;font-weight:700;padding:14px 20px;border-radius:10px;cursor:pointer}
+.copy .signup .su-msg,.copy .signup .fine{grid-column:1/-1}
+.copy .signup .fine{color:rgba(255,255,255,.75)}.copy .signup .fine a{color:#FFFFFF}
+@media (max-width:520px){.copy .signup{grid-template-columns:1fr}}
 .tier .signup input[type=email]{width:100%;font:inherit;font-size:16px;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.35);background:#FFFFFF;color:#0B1A3A}
 .tier .signup .tier-btn{margin-top:0;border:0;cursor:pointer;font:inherit;font-weight:700;font-size:17px;padding:14px;width:100%}
 .tier .signup .fine{font-size:12px;color:#A9B6D3;margin:0;line-height:1.4}.tier .signup .fine a{color:#C9D5F2}
@@ -182,6 +188,14 @@ footer p{margin:0 0 6px;max-width:85ch}
       <span class="pill">Free every market morning</span>
       <h1>One stock a day. <span>Why it moved.</span></h1>
       <p class="lede">Each morning, the stock with the most unusual trading and the story behind its move. In your inbox before the market opens.</p>
+      <form class="signup" id="signup-form" action="https://sotd-pro.drbinnovative.workers.dev/subscribe" method="post">
+        <label class="sr" for="su-email">Email</label>
+        <input id="su-email" type="email" name="email" placeholder="you@email.com" autocomplete="email" required>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn tier-btn" type="submit">Sign up free</button>
+        <p class="su-msg" role="status" hidden></p>
+        <p class="fine">Free. No spam, unsubscribe in one click. By signing up you agree to our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms</a>.</p>
+      </form>
     </div>
     <div class="tiers" aria-label="Free and Pro">
       <div class="tier">
@@ -193,14 +207,7 @@ footer p{margin:0 0 6px;max-width:85ch}
           <li>A quick video of each pick on YouTube, TikTok and Instagram</li>
           <li>Optional topic emails you choose later</li>
         </ul>
-        <form class="signup" id="signup" action="https://sotd-pro.drbinnovative.workers.dev/subscribe" method="post">
-          <label class="sr" for="su-email">Email</label>
-          <input id="su-email" type="email" name="email" placeholder="you@email.com" autocomplete="email" required>
-          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <button class="btn tier-btn" type="submit">Sign up free</button>
-          <p class="su-msg" role="status" hidden></p>
-          <p class="fine">Free. No spam, unsubscribe in one click. By signing up you agree to our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms</a>.</p>
-        </form>
+        <a class="btn tier-btn" href="#su-email">Sign up free</a>
       </div>
       <div class="tier pro">
         <div class="top"><h3>Pro</h3><span class="soon fp">Founding price</span><span class="soon rp" hidden>Now open</span></div>
@@ -209,8 +216,8 @@ footer p{margin:0 0 6px;max-width:85ch}
         <p class="sub fp">Or $79/year (regular $119). Locked in for as long as you stay subscribed.</p>
         <p class="sub rp" hidden>Or $119/year.</p>
         <div class="founding fp" data-src="https://sotd-pro.drbinnovative.workers.dev/founding">
-          <p><b><span class="f-left">25</span> of 25 founding spots left</b> · ends Dec 31</p>
-          <div class="fbar"><i style="width:0%"></i></div>
+          <p><b>Founding price ends Dec 31</b><span class="f-count" hidden> · <span class="f-left">25</span> of 25 spots left</span></p>
+          <div class="fbar" hidden><i style="width:0%"></i></div>
         </div>
         <ul>
           <li>Everything in Free</li>
@@ -267,7 +274,7 @@ footer p{margin:0 0 6px;max-width:85ch}
   <div class="wrap">
     <p><strong>stocksoftheday.com</strong> · © 2026 DRB Innovative Products LLC d/b/a Stocks of the Day · PO Box 1, Amazonia, MO 64421</p>
     <p>Stocks of the Day publishes general market information for educational purposes only. It is not investment advice or a recommendation to buy or sell any security.</p>
-    <p>Follow: <a href="https://www.instagram.com/stocksoftheday/" rel="noopener">Instagram</a> · <a href="https://www.tiktok.com/@stocksoftheday.com" rel="noopener">TikTok</a> · <a href="https://x.com/SOTDstocks" rel="noopener">X</a> · <a href="https://www.facebook.com/1337592529446783" rel="noopener">Facebook</a></p>
+    <p>Follow: <a href="https://www.youtube.com/channel/UCLCU99E1dirjL_zuB5-hmsQ" rel="noopener">YouTube</a> · <a href="https://www.instagram.com/stocksoftheday/" rel="noopener">Instagram</a> · <a href="https://www.tiktok.com/@stocksoftheday.com" rel="noopener">TikTok</a> · <a href="https://x.com/SOTDstocks" rel="noopener">X</a> · <a href="https://www.facebook.com/1337592529446783" rel="noopener">Facebook</a></p>
     <p><a href="https://www.tiingo.com" rel="noopener">Market Data from Tiingo.com</a> · <a href="/issues/">Archive</a> · <a href="/track-record/">Track record</a> · <a href="/research/stock-crashes/">Research: stock crashes</a> · <a href="/stocks/">All stocks</a> · <a href="terms.html">Terms of Service</a> · <a href="privacy.html">Privacy Policy</a></p>
   </div>
 </footer>
@@ -277,12 +284,13 @@ footer p{margin:0 0 6px;max-width:85ch}
 (function(){var w=document.querySelector('.founding[data-src]');if(!w)return;
 fetch(w.dataset.src).then(function(r){return r.json()}).then(function(s){if(s.left==null)return;
 document.querySelectorAll('.f-left').forEach(function(e){e.textContent=s.left});
+if(s.taken>=3){document.querySelectorAll('.f-count,.fbar').forEach(function(e){e.hidden=false})}
 var b=document.querySelector('.fbar i');if(b)b.style.width=Math.max(2,Math.round(100*s.taken/s.spots))+'%';
 document.querySelectorAll('.fp').forEach(function(e){e.hidden=!s.open});
 document.querySelectorAll('.rp').forEach(function(e){e.hidden=s.open});}).catch(function(){});})();
 </script>
 <script>
-(function(){var f=document.getElementById('signup');if(!f)return;var m=f.querySelector('.su-msg'),b=f.querySelector('button');
+(function(){var f=document.getElementById('signup-form');if(!f)return;var m=f.querySelector('.su-msg'),b=f.querySelector('button');
 function show(t,err){m.textContent=t;m.hidden=false;m.className='su-msg'+(err?' err':'');}
 var q=new URLSearchParams(location.search);
 try{['utm_source','utm_medium','utm_campaign'].forEach(function(k){if(q.get(k))sessionStorage.setItem(k,q.get(k))})}catch(e){}
