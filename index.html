@@ -228,7 +228,7 @@ footer p{margin:0 0 6px;max-width:85ch}
           <li>Track record of every pick</li>
           <li>Your own private members page with all of it</li>
         </ul>
-        <a class="btn tier-btn" href="/pro/">Join Pro</a>
+        <a class="btn tier-btn" href="/pro/">Try Pro free for 7 days</a>
       </div>
     </div>
   </div>
@@ -302,5 +302,6 @@ body:JSON.stringify({email:f.email.value,website:f.website.value,utm_source:q.ge
 if(d.ok){show(d.message);f.email.value='';b.textContent='Check your inbox';}else{show(d.message||'Something went wrong.',true);b.disabled=false;b.textContent='Sign up free';}
 }).catch(function(){f.submit();});});})();
 </script>
+<script>/* creator partner links: ?ref=code is remembered for 60 days and passed to Pro checkout */(function(){var k='sotd_ref',r=null;try{var q=new URLSearchParams(location.search).get('ref');if(q&&/^[a-z0-9_-]{2,40}$/i.test(q)){localStorage.setItem(k,JSON.stringify({r:q.toLowerCase(),t:Date.now()}))}var s=JSON.parse(localStorage.getItem(k)||'null');if(s&&Date.now()-s.t<5184e6)r=s.r}catch(e){}if(!r)return;document.querySelectorAll('a[href*="/join/"]').forEach(function(a){a.href+=(a.href.indexOf('?')<0?'?':'&')+'ref='+encodeURIComponent(r)})})();</script>
 </body>
 </html>
